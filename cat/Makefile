@@ -1,10 +1,10 @@
 all: cat
 
-clean:
-		rm cat.o cat
+cat: cat.o
+		gcc -s $< -o $@
 
 cat.o: cat.c
-		gcc -c cat.c
+		gcc -c $< -o $@
 
-cat: cat.o
-		gcc cat.o -o cat
+clean:
+		rm -f cat cat.o
